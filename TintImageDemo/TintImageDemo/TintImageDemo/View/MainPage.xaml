@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:control="clr-namespace:TintImageDemo.Control"
+             xmlns:viewModel="clr-namespace:TintImageDemo.ViewModel"
+             mc:Ignorable="d"
+             x:Class="TintImageDemo.MainPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:TintImageViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <control:TintImage x:Name="homeIcon" Grid.ColumnSpan="3" Aspect="AspectFit" Source="{Binding TintImageSource}" TintColor="{Binding TintColor}" Hint="{Binding ImageName}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="200" WidthRequest="200" />
+
+        <Button Grid.Row="1" Grid.Column="0" Text="Default" Command="{Binding ApplyDefaultCommand}" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Button Grid.Row="1" Grid.Column="1" Text="Black" Command="{Binding ApplyBlackCommand}" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Button Grid.Row="1" Grid.Column="2" Text="Blue" Command="{Binding ApplyBlueCommand}" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Button Grid.Row="2" Grid.ColumnSpan="3" Text="ChangeSize" Clicked="ChangeSize_Clicked" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </Grid>
+
+</ContentPage>
