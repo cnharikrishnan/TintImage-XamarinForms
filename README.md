@@ -7,11 +7,12 @@ TintImage is an extended [Image](https://docs.microsoft.com/en-us/dotnet/api/xam
 </p>
 
 Refer my below post for more details and step by step instructions to create and use the TintImage in a Xamarin.Forms application.
-
 https://xdevlogs.com/2020/06/15/tintimage-xamarin-forms/ 
 
 
-The final outcome of the demo given in Android, iOS and UWP is shown below. 
+### Final output
+
+The final outcome of the demo in Android, iOS and UWP is shown below. 
 
 <p align="center">
   <img src="Screenshots/TintImage_XForms.png" Width="750" />

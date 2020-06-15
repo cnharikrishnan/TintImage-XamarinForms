@@ -32,7 +32,6 @@ namespace TintImageDemo.UWP.Renderer
         private SpriteVisual spriteVisual;
         private TintImage tintImage;
 
-
         protected override void OnElementChanged(ElementChangedEventArgs<Image> e)
         {
             base.OnElementChanged(e);
@@ -124,7 +123,7 @@ namespace TintImageDemo.UWP.Renderer
             var fileSource = source as FileImageSource;
             string filePath = string.Empty;
             if (fileSource == null)
-                filePath = (this.Element as TintImage)?.Hint;
+                filePath = (this.Element as TintImage)?.Hint; //filePath = this.GetImageName();
             else
                 filePath = Path.GetDirectoryName(fileSource.File);
             await CreateSpriteVisualAndTintCompositeEffectBrushAsync(new Uri($"ms-appx:///{filePath}"));
