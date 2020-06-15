@@ -11,6 +11,8 @@ namespace TintImageDemo.ViewModel
     public class TintImageViewModel : INotifyPropertyChanged
     {
         private Color _tintColor;
+        private double _tintHeight;
+        private double _tintWidth;
 
         public TintImageViewModel()
         {
@@ -20,6 +22,9 @@ namespace TintImageDemo.ViewModel
             this.ApplyDefaultCommand = new Command(ExecuteDefaultCommand);
             this.ApplyBlackCommand = new Command(ExecuteBlackCommand);
             this.ApplyBlueCommand = new Command(ExecuteBlueCommand);
+            this.ChangeSizeCommand = new Command(UpdateTintImageSize);
+            this.TintHeight = 200;
+            this.TintWidth = 200;
         }
 
         public Color TintColor
@@ -28,11 +33,24 @@ namespace TintImageDemo.ViewModel
             set { this._tintColor = value; OnPropertyChanged(); }
         }
 
+        public double TintHeight
+        {
+            get { return this._tintHeight; }
+            set { this._tintHeight = value; OnPropertyChanged(); }
+        }
+
+        public double TintWidth
+        {
+            get { return this._tintWidth; }
+            set { this._tintWidth = value; OnPropertyChanged(); }
+        }
+
         public ImageSource TintImageSource { get; set; }
         public string ImageName { get; set; }
         public ICommand ApplyDefaultCommand { get; set; }
         public ICommand ApplyBlackCommand { get; set; }
         public ICommand ApplyBlueCommand { get; set; }
+        public ICommand ChangeSizeCommand { get; set; }
 
         private Color GetDefaultTintColor()
         {
@@ -52,6 +70,20 @@ namespace TintImageDemo.ViewModel
         private void ExecuteBlueCommand(object obj)
         {
             this.TintColor = Color.Blue;
+        }
+
+        private void UpdateTintImageSize(object obj)
+        {
+            if (TintHeight == 200)
+            {
+                TintHeight = 300;
+                TintWidth = 300;
+            }
+            else
+            {
+                TintHeight = 200;
+                TintWidth = 200;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -123,7 +123,10 @@ namespace TintImageDemo.UWP.Renderer
             var fileSource = source as FileImageSource;
             string filePath = string.Empty;
             if (fileSource == null)
-                filePath = (this.Element as TintImage)?.Hint; //filePath = this.GetImageName();
+            {
+                filePath = (this.Element as TintImage)?.Hint; //finding image name by passing from control.
+                //filePath = this.GetImageName(); //finding image name using reflection
+            }
             else
                 filePath = Path.GetDirectoryName(fileSource.File);
             await CreateSpriteVisualAndTintCompositeEffectBrushAsync(new Uri($"ms-appx:///{filePath}"));

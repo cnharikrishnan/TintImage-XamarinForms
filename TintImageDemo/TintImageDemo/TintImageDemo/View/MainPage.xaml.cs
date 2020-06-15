@@ -16,21 +16,6 @@ namespace TintImageDemo
         public MainPage()
         {
             InitializeComponent();
-            //this.homeIcon.Source = ImageSource.FromResource("TintImageDemo.Image.HomeIcon.png", this.GetType().Assembly);
-        }
-
-        private void ChangeSize_Clicked(object sender, EventArgs e)
-        {
-            if(homeIcon.HeightRequest == 200)
-            {
-                homeIcon.HeightRequest = 300;
-                homeIcon.WidthRequest = 300;
-            }
-            else
-            {
-                homeIcon.HeightRequest = 200;
-                homeIcon.WidthRequest = 200;
-            }
         }
     }
 }
